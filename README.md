@@ -1,2 +1,2 @@
-# 7011
-use for some pictures
+# 说明
+该库主要用来存放一些文档图片
