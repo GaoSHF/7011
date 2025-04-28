@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <!-- 定义阴影 -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="4" dy="4" stdDeviation="5" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- 定义箭头标记 -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#666"/>
+    </marker>
+
+    <!-- 定义虚线箭头标记 -->
+    <marker id="dashed-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+    
+    <!-- ROS2节点样式 -->
+    <linearGradient id="ros-node-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C87C5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1C567E;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- UDP模块样式 -->
+    <linearGradient id="udp-module-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E67E22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D35400;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 消息队列样式 -->
+    <linearGradient id="queue-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#27AE60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E8449;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 序列化模块样式 -->
+    <linearGradient id="serializer-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E44AD;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 监控模块样式 -->
+    <linearGradient id="monitor-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#C0392B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#922B21;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 外部系统样式 -->
+    <linearGradient id="external-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F8C8D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D6D7E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#F9F9F9"/>
+  
+  <!-- 顶部标题 -->
+  <text x="600" y="40" font-family="Arial" font-size="28" text-anchor="middle" font-weight="bold" fill="#2C3E50">ROS2 UDP 桥接工程架构图</text>
+  
+  <!-- ROS2系统边界 -->
+  <rect x="50" y="70" width="1100" height="400" rx="10" ry="10" fill="#ECF0F1" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="100" y="100" font-family="Arial" font-size="18" font-weight="bold" fill="#2C3E50">ROS2 系统</text>
+  
+  <!-- 网络传输边界 -->
+  <rect x="50" y="490" width="1100" height="360" rx="10" ry="10" fill="#F4F6F7" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="100" y="520" font-family="Arial" font-size="18" font-weight="bold" fill="#2C3E50">网络传输</text>
+  
+  <!-- ROS2节点 -->
+  <rect x="100" y="130" width="200" height="80" rx="8" ry="8" fill="url(#ros-node-gradient)" filter="url(#shadow)"/>
+  <text x="200" y="175" font-family="Arial" font-size="16" text-anchor="middle" fill="white">ROS2 桥接节点</text>
+  <text x="200" y="195" font-family="Arial" font-size="12" text-anchor="middle" fill="white">ros_udp_bridge_node</text>
+  
+  <!-- ROS2 话题 -->
+  <rect x="400" y="110" width="180" height="50" rx="25" ry="25" fill="#3498DB" stroke="#2980B9" stroke-width="2"/>
+  <text x="490" y="140" font-family="Arial" font-size="14" text-anchor="middle" fill="white">融合对象数据话题</text>
+  
+  <rect x="400" y="180" width="180" height="50" rx="25" ry="25" fill="#3498DB" stroke="#2980B9" stroke-width="2"/>
+  <text x="490" y="210" font-family="Arial" font-size="14" text-anchor="middle" fill="white">融合车道线话题</text>
+  
+  <!-- Jetson监控 -->
+  <rect x="100" y="250" width="200" height="70" rx="8" ry="8" fill="url(#monitor-gradient)" filter="url(#shadow)"/>
+  <text x="200" y="290" font-family="Arial" font-size="16" text-anchor="middle" fill="white">Jetson监控器</text>
+  <text x="200" y="310" font-family="Arial" font-size="12" text-anchor="middle" fill="white">JetsonMonitor</text>
+  
+  <!-- 序列化模块 -->
+  <rect x="400" y="280" width="180" height="60" rx="8" ry="8" fill="url(#serializer-gradient)" filter="url(#shadow)"/>
+  <text x="490" y="315" font-family="Arial" font-size="14" text-anchor="middle" fill="white">序列化模块</text>
+  <text x="490" y="330" font-family="Arial" font-size="10" text-anchor="middle" fill="white">ClusterObjSerializer / FusionLaneSerializer</text>
+  
+  <!-- 消息队列 -->
+  <rect x="400" y="380" width="120" height="70" rx="8" ry="8" fill="url(#queue-gradient)" filter="url(#shadow)"/>
+  <text x="460" y="420" font-family="Arial" font-size="14" text-anchor="middle" fill="white">主消息队列</text>
+  <text x="460" y="440" font-family="Arial" font-size="10" text-anchor="middle" fill="white">(含心跳)</text>
+  
+  <rect x="550" y="380" width="120" height="70" rx="8" ry="8" fill="url(#queue-gradient)" filter="url(#shadow)"/>
+  <text x="610" y="420" font-family="Arial" font-size="14" text-anchor="middle" fill="white">无心跳队列</text>
+  <text x="610" y="440" font-family="Arial" font-size="10" text-anchor="middle" fill="white">(NoHeartbeatQueue)</text>
+  
+  <!-- UDP发送器 -->
+  <rect x="100" y="380" width="120" height="70" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="160" y="420" font-family="Arial" font-size="14" text-anchor="middle" fill="white">定时器管理器</text>
+  <text x="160" y="440" font-family="Arial" font-size="10" text-anchor="middle" fill="white">TimerManager</text>
+  
+  <rect x="250" y="360" width="120" height="40" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="310" y="385" font-family="Arial" font-size="14" text-anchor="middle" fill="white">主UDP发送器</text>
+  
+  <rect x="250" y="410" width="120" height="40" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="310" y="435" font-family="Arial" font-size="14" text-anchor="middle" fill="white">转发UDP发送器</text>
+  
+  <!-- UDP接收器 -->
+  <rect x="700" y="170" width="140" height="80" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="770" y="205" font-family="Arial" font-size="16" text-anchor="middle" fill="white">UDP接收管理器</text>
+  <text x="770" y="225" font-family="Arial" font-size="12" text-anchor="middle" fill="white">UdpReceiverManager</text>
+  
+  <rect x="700" y="280" width="120" height="50" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="760" y="310" font-family="Arial" font-size="14" text-anchor="middle" fill="white">CAN接收器</text>
+  
+  <rect x="700" y="340" width="120" height="50" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="760" y="370" font-family="Arial" font-size="14" text-anchor="middle" fill="white">右雷达接收器</text>
+  
+  <rect x="700" y="400" width="120" height="50" rx="8" ry="8" fill="url(#udp-module-gradient)" filter="url(#shadow)"/>
+  <text x="760" y="430" font-family="Arial" font-size="14" text-anchor="middle" fill="white">左雷达接收器</text>
+  
+  <!-- 外部数据源 -->
+  <rect x="850" y="260" width="120" height="50" rx="8" ry="8" fill="url(#external-gradient)" filter="url(#shadow)"/>
+  <text x="910" y="290" font-family="Arial" font-size="14" text-anchor="middle" fill="white">CAN数据源</text>
+  
+  <rect x="850" y="320" width="120" height="50" rx="8" ry="8" fill="url(#external-gradient)" filter="url(#shadow)"/>
+  <text x="910" y="350" font-family="Arial" font-size="14" text-anchor="middle" fill="white">右雷达数据源</text>
+  
+  <rect x="850" y="380" width="120" height="50" rx="8" ry="8" fill="url(#external-gradient)" filter="url(#shadow)"/>
+  <text x="910" y="410" font-family="Arial" font-size="14" text-anchor="middle" fill="white">左雷达数据源</text>
+  
+  <!-- 数据目标 -->
+  <rect x="400" y="550" width="150" height="70" rx="8" ry="8" fill="url(#external-gradient)" filter="url(#shadow)"/>
+  <text x="475" y="580" font-family="Arial" font-size="16" text-anchor="middle" fill="white">主目标系统</text>
+  <text x="475" y="600" font-family="Arial" font-size="12" text-anchor="middle" fill="white">192.168.55.110:4001</text>
+  
+  <rect x="700" y="550" width="150" height="70" rx="8" ry="8" fill="url(#external-gradient)" filter="url(#shadow)"/>
+  <text x="775" y="580" font-family="Arial" font-size="16" text-anchor="middle" fill="white">转发目标系统</text>
+  <text x="775" y="600" font-family="Arial" font-size="12" text-anchor="middle" fill="white">192.168.3.102</text>
+  
+  <!-- 端口映射 -->
+  <rect x="700" y="650" width="300" height="180" rx="8" ry="8" fill="#FEF9E7" stroke="#F9E79F" stroke-width="2"/>
+  <text x="850" y="670" font-family="Arial" font-size="14" text-anchor="middle" fill="#7D6608">端口映射</text>
+  <text x="710" y="690" font-family="Arial" font-size="12" fill="#7D6608">• CAN数据: 端口3011</text>
+  <text x="710" y="710" font-family="Arial" font-size="12" fill="#7D6608">• 右雷达: 端口3013</text>
+  <text x="710" y="730" font-family="Arial" font-size="12" fill="#7D6608">• 左雷达: 端口3015</text>
+  <text x="710" y="750" font-family="Arial" font-size="12" fill="#7D6608">• 融合对象: 端口3017</text>
+  <text x="710" y="770" font-family="Arial" font-size="12" fill="#7D6608">• 融合车道线: 端口3019</text>
+  <text x="710" y="790" font-family="Arial" font-size="12" fill="#7D6608">• Jetson状态: 端口3021</text>
+  <text x="710" y="810" font-family="Arial" font-size="12" fill="#7D6608">• 无心跳帧(flag=0)在转发数据中</text>
+  
+  <!-- 数据类型 -->
+  <rect x="100" y="650" width="250" height="180" rx="8" ry="8" fill="#EBF5FB" stroke="#AED6F1" stroke-width="2"/>
+  <text x="225" y="670" font-family="Arial" font-size="14" text-anchor="middle" fill="#21618C">数据类型标识(flag)</text>
+  <text x="110" y="690" font-family="Arial" font-size="12" fill="#21618C">• 心跳帧: flag = 0</text>
+  <text x="110" y="710" font-family="Arial" font-size="12" fill="#21618C">• 融合对象数据: flag = 1</text>
+  <text x="110" y="730" font-family="Arial" font-size="12" fill="#21618C">• 融合车道线数据: flag = 2</text>
+  <text x="110" y="750" font-family="Arial" font-size="12" fill="#21618C">• Jetson状态信息: flag = 3</text>
+  
+  <!-- 数据流动箭头 -->
+  <!-- ROS2节点到话题 -->
+  <line x1="300" y1="170" x2="400" y2="135" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="300" y1="170" x2="400" y2="205" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 话题到序列化 -->
+  <line x1="490" y1="160" x2="490" y2="280" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="230" x2="500" y2="280" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Jetson监控到序列化 -->
+  <line x1="300" y1="285" x2="400" y2="310" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 序列化到消息队列 -->
+  <line x1="490" y1="340" x2="460" y2="380" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="490" y1="340" x2="610" y2="380" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 消息队列到UDP发送器 -->
+  <line x1="400" y1="410" x2="380" y2="410" stroke="#666" stroke-width="2"/>
+  <line x1="380" y1="410" x2="380" y2="380" stroke="#666" stroke-width="2"/>
+  <line x1="380" y1="380" x2="370" y2="380" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <line x1="550" y1="410" x2="530" y2="410" stroke="#666" stroke-width="2"/>
+  <line x1="530" y1="410" x2="530" y2="430" stroke="#666" stroke-width="2"/>
+  <line x1="530" y1="430" x2="370" y2="430" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 定时器到UDP发送器 -->
+  <line x1="220" y1="415" x2="240" y2="415" stroke="#666" stroke-width="2"/>
+  <line x1="240" y1="415" x2="240" y2="380" stroke="#666" stroke-width="2"/>
+  <line x1="240" y1="380" x2="250" y2="380" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <line x1="220" y1="415" x2="240" y2="415" stroke="#666" stroke-width="2"/>
+  <line x1="240" y1="415" x2="240" y2="430" stroke="#666" stroke-width="2"/>
+  <line x1="240" y1="430" x2="250" y2="430" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- UDP发送器到目标系统 -->
+  <line x1="310" y1="400" x2="310" y2="490" stroke="#666" stroke-width="2"/>
+  <line x1="310" y1="490" x2="475" y2="490" stroke="#666" stroke-width="2"/>
+  <line x1="475" y1="490" x2="475" y2="550" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <line x1="320" y1="450" x2="320" y2="480" stroke="#666" stroke-width="2"/>
+  <line x1="320" y1="480" x2="775" y2="480" stroke="#666" stroke-width="2"/>
+  <line x1="775" y1="480" x2="775" y2="550" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 外部数据源到UDP接收器 -->
+  <line x1="850" y1="285" x2="820" y2="285" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="850" y1="345" x2="820" y2="345" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="850" y1="405" x2="820" y2="405" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- UDP接收器到UDP接收管理器 -->
+  <line x1="760" y1="280" x2="760" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="770" y1="340" x2="770" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="780" y1="400" x2="780" y2="250" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- UDP接收管理器到目标系统 -->
+  <line x1="840" y1="210" x2="1000" y2="210" stroke="#666" stroke-width="2"/>
+  <line x1="1000" y1="210" x2="1000" y2="585" stroke="#666" stroke-width="2"/>
+  <line x1="1000" y1="585" x2="850" y2="585" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- 图例 -->
+  <rect x="420" y="680" width="20" height="20" rx="3" ry="3" fill="url(#ros-node-gradient)"/>
+  <text x="450" y="695" font-family="Arial" font-size="12" fill="#333">ROS2节点</text>
+  
+  <rect x="420" y="710" width="20" height="20" rx="3" ry="3" fill="url(#udp-module-gradient)"/>
+  <text x="450" y="725" font-family="Arial" font-size="12" fill="#333">UDP模块</text>
+  
+  <rect x="420" y="740" width="20" height="20" rx="3" ry="3" fill="url(#queue-gradient)"/>
+  <text x="450" y="755" font-family="Arial" font-size="12" fill="#333">消息队列</text>
+  
+  <rect x="420" y="770" width="20" height="20" rx="3" ry="3" fill="url(#serializer-gradient)"/>
+  <text x="450" y="785" font-family="Arial" font-size="12" fill="#333">序列化模块</text>
+  
+  <rect x="420" y="800" width="20" height="20" rx="3" ry="3" fill="url(#monitor-gradient)"/>
+  <text x="450" y="815" font-family="Arial" font-size="12" fill="#333">监控模块</text>
+  
+  <rect x="420" y="830" width="20" height="20" rx="3" ry="3" fill="url(#external-gradient)"/>
+  <text x="450" y="845" font-family="Arial" font-size="12" fill="#333">外部系统</text>
+</svg>
